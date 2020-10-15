@@ -1,1 +1,2 @@
 # samskrutistudentportal
+# samskruticollegeportal
