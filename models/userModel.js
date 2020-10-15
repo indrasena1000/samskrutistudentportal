@@ -9,12 +9,12 @@ const userSchema= new mongoose.Schema({
         lowercase:true,
         trim: true
     },
-    // employeeId:{
-    //     type: String,
-    //     lowercase:true,
-    //     trim: true,
-    //     unique: true
-    // },
+    employeeId:{
+        type: String,
+        lowercase:true,
+        trim: true,
+        unique: true
+    },
     hallTicket: {
         type: String,
         lowercase:true,
