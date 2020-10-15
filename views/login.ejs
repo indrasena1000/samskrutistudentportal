@@ -161,16 +161,16 @@ body {
 				  <div class="card card-signin my-5">
 					<div class="card-body">
 					  <h5 class="card-title text-center"><i style="padding-right: 15px;" class="fa fa-user-circle-o" aria-hidden="true"></i>Faculty LogIn</h5>
-					  <form class="form-signin">
+					  <form action="/auth/user/signin" class="form-signin" method="POST">
 						<div class="form-label-group">
-							<label for="inputEmail">Email address</label>
-						  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+							<label for="inputEmail">Employee Id</label>
+						  <input type="text"  class="form-control" name="employeeId" placeholder="Email address" required autofocus>
 						 
 						</div>
 		  
 						<div class="form-label-group">
 							<label for="inputPassword">Password</label>
-						  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+						  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 						 
 						</div>
 		  

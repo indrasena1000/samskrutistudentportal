@@ -7,7 +7,7 @@ const db = require("../models/index")
 
 exports.register = async(req,res)=>{
 try{
-    var {name,hallTicket,password,role} = req.body
+    var {name,hallTicket,password,role,employeeId} = req.body
     console.log(req.body)
 let user = await db.User.findOne({hallTicket:hallTicket})
 if(user){
@@ -28,9 +28,16 @@ if(user){
 if(req.body.password == undefined){
     password = "samskruti"
 }
+  if(req.body.hallTicket && !req.body.employeeId){
     user = new db.User({
    name,hallTicket,password,role
     })
+}else if(!req.body.hallTicket && req.body.employeeId){
+    console.log("employee");
+    user = new db.User({
+        name,employeeId,password,role
+})
+}
     console.log(password)
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
@@ -49,11 +56,16 @@ console.log("error in saving")
 exports.signin = async(req,res)=>{
 try{
     console.log(req.body.hallTicket)
+    console.log(req.body.employeeId)
     console.log(req.body.password)
-
-const user = await db.User.findOne({hallTicket:req.body.hallTicket})
-console.log("user")
+if(req.body.hallTicket){
+var user = await db.User.findOne({hallTicket:req.body.hallTicket})
+}else if(req.body.employeeId){
+    var user = await db.User.findOne({employeeId:req.body.employeeId})
+}
 console.log(user)
+console.log("user")
+
 if(!user){
     return res.redirect("/")
     // return res.status(200).json({message:"student does not exists"})
