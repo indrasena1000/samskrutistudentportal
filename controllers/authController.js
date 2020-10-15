@@ -55,13 +55,13 @@ const user = await db.User.findOne({hallTicket:req.body.hallTicket})
 console.log("user")
 console.log(user)
 if(!user){
-    return res.redirect("/welcome")
+    return res.redirect("/")
     // return res.status(200).json({message:"student does not exists"})
 }
 const isMatch = await bcrypt.compare(req.body.password,user.password)
 console.log(isMatch)
 if(!isMatch){
-    return res.redirect("/welcome")
+    return res.redirect("/")
     // return res.status(200).json({message:"password does not match"})
 }
 const userId = user._id.toString()
