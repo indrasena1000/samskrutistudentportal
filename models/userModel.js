@@ -47,6 +47,7 @@ const userSchema= new mongoose.Schema({
     //     enum:["Engineering","Diploma","Pharmacy"],
         
     // },
+    Attendance:{type:Number},
     Engineering:{
         regulation:{type:String},
         yearsOfStudy:{type:String},
