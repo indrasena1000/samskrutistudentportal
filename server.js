@@ -20,7 +20,7 @@ app.use(express.static(`public/`))
 require('dotenv').config();
 const PORT = process.env.PORT ;
 
-app.get("/welcome",(req,res)=>{
+app.get("/",(req,res)=>{
    return res.render("./login.ejs")
 })
 

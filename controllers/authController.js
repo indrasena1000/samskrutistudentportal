@@ -72,12 +72,12 @@ return res.render("student_dashboard.ejs",{user})
 // return res.status(200).json(user)
 }catch(err){
     console.log("signin failed")
-    return res.redirect("/welcome")
+    return res.redirect("/")
     // res.status(400).json(err)
 }
 
 }
 
 exports.logout = async(req,res)=>{
-return res.redirect("/welcome")
+return res.redirect("/")
 }
