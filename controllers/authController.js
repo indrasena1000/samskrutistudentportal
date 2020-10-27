@@ -12,7 +12,8 @@ const signToken = id => {
   
   const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user._id);
-  
+  user.active=true;
+  user.save()
     res.cookie('jwt', token, {
       expires: new Date(
         Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
@@ -20,6 +21,8 @@ const signToken = id => {
       httpOnly: true,
       secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
     });
+  //   user.token = token
+  // user.save()
     //  return res.status(200).json("successfullylogged in")
      return res.redirect(`/${user.role}/dashboard`);
   };
@@ -139,33 +142,6 @@ try{
   //   await user.save();
   createSendToken(user, 200, req, res);
 
-//     console.log(req.body.hallTicket)
-//     console.log(req.body.employeeId)
-//     console.log(req.body.password)
-// if(req.body.hallTicket){
-// var user = await db.User.findOne({hallTicket:req.body.hallTicket})
-// }else if(req.body.employeeId){
-//     var user = await db.User.findOne({employeeId:req.body.employeeId})
-// }
-// console.log(user)
-// console.log("user")
-
-// if(!user){
-//     return res.redirect("/")
-//     // return res.status(200).json({message:"student does not exists"})
-// }
-// const isMatch = await bcrypt.compare(req.body.password,user.password)
-// console.log(isMatch)
-// if(!isMatch){
-//     return res.redirect("/")
-//     // return res.status(200).json({message:"password does not match"})
-// }
-// const userId = user._id.toString()
-// const token= jwt.sign(userId,process.env.JWTTOKEN)
-// user.token = token
-// await user.save()
-// return res.render("student_dashboard.ejs",{user})
-// return res.status(200).json(user)
 }catch(err){
     console.log("signin failed")
     return res.redirect("/")

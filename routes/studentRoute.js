@@ -11,7 +11,7 @@ const {studentDashboard
     studentProjectSearch,
     studentTimeTable} = require("../controllers/studentController")
 
-router.get("/dashboard/:htno",studentDashboard)
+router.get("/dashboard/",studentDashboard)
 router.get("/attendance/:htno",studentAttendance)
 router.get("/backlogs/:htno",studentBacklogs)
 router.get("/changembno/:htno",studentChangeMbNo)

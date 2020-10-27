@@ -35,6 +35,9 @@ const empSchema = new mongoose.Schema({
       type: String,
       required: [true, 'Please specify your gender']
     },
+    token:{
+      type:String
+    },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
     passwordChangedAt: Date,
