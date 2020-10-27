@@ -1,0 +1,236 @@
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>
+    samskruti login
+  </title>
+	 <style>
+		:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+body {
+	align-items: center;
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+/* .form-label-group>input,
+.form-label-group>label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  /* Override default `<label>` margin */
+  /* line-height: 1.5;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+} */ 
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+.btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white;
+  background-color: #3b5998;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+	</style> 
+</head>
+<body>
+	
+	<div class="container">
+		
+			<div style="margin-top: 190px;" class="row">
+				<div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
+				  <div class="card card-signin my-5">
+					<div class="card-body">
+					  <h5 class="card-title text-center"><i style="padding-right: 15px;" class="fa fa-user-circle-o" aria-hidden="true"></i>Faculty LogIn</h5>
+					  <form action="/auth/user/signup" class="form-signin" method="POST">
+						<div class="form-label-group">
+							<label for="inputEmail">Email</label>
+						  <input type="text"  class="form-control" name="email" placeholder="Email address" required autofocus>
+						</div>
+                        <div class="form-label-group">
+							<label for="inputEmail">Employee Id</label>
+						  <input type="text"  class="form-control" name="Id" placeholder="Email address" required autofocus>
+						 
+                        </div>
+                        <div class="form-label-group">
+                          <label for="inputEmail">name</label>
+                          <input type="text"  class="form-control" name="name" placeholder="Email address" required autofocus>
+                         
+                        </div>
+                        <div class="form-label-group">
+							<label for="inputEmail">phone</label>
+						  <input type="text"  class="form-control" name="phone" placeholder="Email address" required autofocus>
+						 
+						</div>
+            <div class="form-label-group">
+							<label for="inputEmail">gender</label>
+						  <input type="text"  class="form-control" name="gender" placeholder="Email address" required autofocus>
+						 
+						</div>
+            <div class="form-label-group">
+							<label for="inputPassword">code</label>
+						  <input type="password" name="code" id="inputPassword" class="form-control" placeholder="Password" required>
+						 
+						</div>
+						<div class="custom-control custom-checkbox mb-3">
+						  <input type="checkbox" class="custom-control-input" id="customCheck1">
+						  <label class="custom-control-label" for="customCheck1">Remember password</label>
+						</div>
+						<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+						 </form>
+					</div>
+				  </div>
+				</div>
+				<!--break -->
+				<div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
+				  <div class="card card-signin my-5">
+					<div class="card-body">
+						
+						<h5 class="card-title text-center"><i style="padding-right: 15px;" class="fa fa-users" aria-hidden="true"></i>Student LogIn</h5>
+					  <form action='/auth/user/signin' class="form-signin" method="POST">
+						<div class="form-label-group">
+							<label for="inputEmail">HallTicket</label>
+						  <input type="text"  class="form-control" name="hallTicket" placeholder="Enter HallTicket" required autofocus>
+						
+						</div>
+		  
+						<div class="form-label-group">
+							<label for="inputPassword">Password</label>
+						  <input type="password"  name="password" class="form-control" placeholder="Password" required>
+						 
+						</div>
+		  
+						<div class="custom-control custom-checkbox mb-3">
+						  <input type="checkbox" class="custom-control-input" id="customCheck1">
+						  <label class="custom-control-label" for="customCheck1">Remember password</label>
+						</div>
+						<button  class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+						</form>
+					</div>
+				  </div>
+				</div>
+			  </div>
+		
+	  
+	</div>
+  </body>
+  

@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema({
     resetPasswordExpires: Date,
     passwordChangedAt: Date,
     role: { type: String },
+    active: { type: Boolean },
     category:{type:String},
     unauthorized: [
       {

@@ -14,7 +14,7 @@ const empSchema = new mongoose.Schema({
       lowercase: true,
       validate: [validator.isEmail, 'Please provide a valid email']
     },
-    employeeId: {
+    Id: {
       type: String,
       lowercase:true,
       required: [true, 'Please provide a username'],
