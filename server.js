@@ -27,6 +27,6 @@ app.get("/",(req,res)=>{
 app.use("/student",studentRoute)
 app.use("/auth",authRoute)
 
-app.listen(PORT, (req, res) => {
+app.listen(3007, (req, res) => {
     console.log(`Server Started at PORT ${PORT}`);
   });
