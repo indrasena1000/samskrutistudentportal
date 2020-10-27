@@ -47,6 +47,6 @@ app.use("/student",protect,studentRoute)
 app.use("/employee",protect,employeeRoute)
 app.use("/auth",authRoute)
 
-app.listen(3007, (req, res) => {
-   //  console.log(`Server Started at PORT ${PORT}`);
+app.listen(PORT, (req, res) => {
+     console.log(`Server Started at PORT ${PORT}`);
   });
