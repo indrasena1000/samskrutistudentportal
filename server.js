@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 if (process.env.NODE_ENV === 'development') {
    app.use(morgan('dev'));
  }
- app.locals.moment = moment;
+//  app.locals.moment = moment;
 app.use(bodyParser.json());
 app.use(cors())
 // app.use(morgan())
@@ -30,18 +30,18 @@ app.use(express.static(`public/`))
 require('dotenv').config();
 const PORT = process.env.PORT ;
 
-app.use(function(req, res, next) {
-   res.locals.success = req.flash('success');
-   res.locals.error = req.flash('error');
-   res.locals.host = `http://${req.headers.host}`;
-   next();
- });
+// app.use(function(req, res, next) {
+//    res.locals.success = req.flash('success');
+//    res.locals.error = req.flash('error');
+//    res.locals.host = `http://${req.headers.host}`;
+//    next();
+//  });
 app.get("/",(req,res)=>{
    return res.render("./login.ejs")
 })
-app.all('*', (req, res, next) => {
-   res.render('404');
- });
+// app.all('*', (req, res, next) => {
+//    res.render('404');
+//  });
 app.use(`/admin`, protect, AdminRoute);
 app.use("/student",protect,studentRoute)
 app.use("/employee",protect,employeeRoute)

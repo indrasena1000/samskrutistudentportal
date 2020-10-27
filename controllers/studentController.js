@@ -2,9 +2,9 @@ const express = require("express");
 const db = require("../models/index")
 
 exports.studentDashboard = async(req,res)=>{
-    console.log(req.params.htno)
-    const user = await db.User.findOne({hallTicket:req.params.htno})
-    return res.render("student_dashboard.ejs",{user})
+    console.log(req.user)
+    user = req.user
+        return res.render("student_dashboard.ejs",{user})
 }
 
 exports.studentAttendance = async(req,res)=>{

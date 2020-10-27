@@ -23,7 +23,9 @@ const signToken = id => {
     });
   //   user.token = token
   // user.save()
-    //  return res.status(200).json("successfullylogged in")
+  console.log(user.role)
+      //return res.status(200).json("successfullylogged in")
+     
      return res.redirect(`/${user.role}/dashboard`);
   };
   
