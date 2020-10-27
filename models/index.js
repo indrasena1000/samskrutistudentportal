@@ -15,3 +15,4 @@ mongoose.connect(
 })
 
 exports.User = require('../models/userModel')
+exports.Employee = require('../models/employeeModel')
