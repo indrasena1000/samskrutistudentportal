@@ -7,5 +7,5 @@ router.get("/getsignup",getSignup)
  router.post("/user/signup",register)
 router.post("/user/signin",studentSignin)
 router.post("/employee/signin",employeeSignin)
-router.get("/user/logout/:Id",logout)
+router.get("/user/logout/:role/:Id",logout)
 module.exports = router;

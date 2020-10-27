@@ -13,10 +13,13 @@ const app = express();
 app.use(express.json())
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
-
+if (process.env.NODE_ENV === 'development') {
+   app.use(morgan('dev'));
+ }
+ 
 app.use(bodyParser.json());
 app.use(cors())
-app.use(morgan())
+// app.use(morgan())
 app.use(cookieParser());
 app.use(express.static(`public/`))
 require('dotenv').config();

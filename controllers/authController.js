@@ -202,28 +202,28 @@ exports.logout = (async (req, res, next) => {
       expires: new Date(Date.now() + 10 * 1000),
       httpOnly: true
     });
-    if(req.user.role === "employee" || "admin" ){
-    await db.Employee.findByIdAndUpdate(req.params.id, newItem, err => {
+    
+    
+    if(req.params.role === "employee" || "admin" ){
+    await db.Employee.findByIdAndUpdate(req.params.Id, newItem, err => {
       if (err) {
-        req.flash('error', err);
+        // req.flash('error', err);
         return res.redirect('/');
       }
-      req.flash('success', `Looking forward to see you again`);
+      // req.flash('success', `Looking forward to see you again`);
       return res.redirect('/');
     });
 }else{
     await db.User.findByIdAndUpdate(req.params.id, newItem, err => {
         if (err) {
-          req.flash('error', err);
+          // req.flash('error', err);
           return res.redirect('/');
         }
-        req.flash('success', `Looking forward to see you again`);
+        // req.flash('success', `Looking forward to see you again`);
         return res.redirect('/');
       });
 }
-
   });
-
   exports.getSignup = async(req, res, next) => {
     console.log("iscoming")
  return res.render("signup")
