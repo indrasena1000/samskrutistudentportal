@@ -194,12 +194,12 @@
             <span>Project Search</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link " href="/add-new-post.html">
             <i class="material-icons">note_add</i>
-            <span>RESOURCES</span>
+            <span>Fees</span>
           </a>
-        </li> -->
+        </li>
         <li class="nav-item">
           <a class="nav-link " href="/student/timetable/<%=user.hallTicket%>">
             <i class="material-icons">note_add</i>
@@ -216,29 +216,60 @@
         <li class="nav-item">
           <a class="nav-link " href="form-components.html">
             <i class="material-icons">view_module</i>
-            <span>Forms &amp; Components</span>
+            <span>students</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="tables.html">
             <i class="material-icons">table_chart</i>
-            <span>Tables</span>
+            <span>employees</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="user-profile-lite.html">
             <i class="material-icons">person</i>
-            <span>User Profile</span>
+            <span>BlogPosts</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="errors.html">
             <i class="material-icons">error</i>
-            <span>Errors</span>
+            <span>Attendance</span>
           </a>
         </li>
-        
-          <%}%>
+        <li class="nav-item">
+          <a class="nav-link " href="errors.html">
+            <i class="material-icons">error</i>
+            <span>Marks</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="errors.html">
+            <i class="material-icons">error</i>
+            <span>Signup Users</span>
+          </a>
+        </li>
+          <%} else{
+            <li class="nav-item">
+              <a class="nav-link " href="form-components.html">
+                <i class="material-icons">view_module</i>
+                <span>Attendance</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="tables.html">
+                <i class="material-icons">table_chart</i>
+                <span>timetable</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="user-profile-lite.html">
+                <i class="material-icons">person</i>
+                <span>Subjects</span>
+              </a>
+            </li>
+
+          }%>
       </ul>
     </div>
  
