@@ -18,21 +18,33 @@ exports.protect = (async (req, res, next) => {
   }
 
   if (!token) {
+    console.log("token")
     return next('You are not logged in! Please log in to get access.', 401
     );
   }
 
   // 2) Verification token
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-
+  
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
+  //.then((err,res)=>{
+//     if(err){
+//       console.log("error")
+//     }
+//   }).catch((err)=>{
+// console.log("erroar")
+//   })
+  
   // 3) Check if user still exists
 
   const currentuser = await db.Employee.findById(decoded.id);
-
+  console.log("hello")
+ 
 if(currentuser ==undefined){
   const presentUser = await db.User.findById(decoded.id)
+  
   currentUser = presentUser
   if (!presentUser) {
+    console.log("here")
     return next('The user belonging to this token no longer exist.', 401)
   
   }
