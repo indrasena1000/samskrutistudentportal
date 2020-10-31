@@ -37,7 +37,7 @@ const PORT = process.env.PORT ;
 //    next();
 //  });
 app.get("/",(req,res)=>{
-   return res.render("./login.ejs")
+   return res.render("./student/studentProfile.ejs")
 })
 // app.all('*', (req, res, next) => {
 //    res.render('404');
