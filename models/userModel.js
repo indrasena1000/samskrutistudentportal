@@ -35,12 +35,44 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: [true, 'Please specify your gender']
     },
+    booksTaken:[{
+      bookName:{type:String},
+      bookId:{type:String}
+      }],
+    projects:{type:String},
+    category:{type:String},
+    stream:{type:String,
+    enum:["MBA","Engineering","Pharmacy","Polytechnic"],
+    required: [true, 'Please specify your gender']},
+    branch:{
+    type:String,
+    required: [true, 'Please specify your gender']
+    },
+    feeDetails:[{
+      semister:{type:String},
+      tutionFee:{type:String},
+    }],
+    marks:[{
+      semister:[{
+        semisterNumber:{type:String},
+        subjects:[{
+          subjectName:{type:String},
+          marks:{type:Number}
+        }],
+        totalSemisterMarks:{type:Number}
+      }],
+     totalMarks:{type:Number}
+    }],
+    attendance:{
+      monthName:{type:String},
+      attendancePercentage:{type:String}
+    },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
     passwordChangedAt: Date,
     role: { type: String },
     active: { type: Boolean },
-    category:{type:String},
+  
     unauthorized: [
       {
         date: { type: Date },

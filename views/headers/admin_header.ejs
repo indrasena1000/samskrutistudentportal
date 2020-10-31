@@ -33,19 +33,18 @@
           <li  class="nav-item  dropdown">
             <a  class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <img class="user-avatar rounded-circle mr-2" src="/images/avatars/0.jpg" alt="User Avatar">
+            <%if(user){%>
               <span class="d-none d-md-inline-block"><%=user.name%></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-small">
-              <a class="dropdown-item" href="/student/profile/<%=user.hallTicket%>">
-                <i class="material-icons">&#xE7FD;</i> Profile</a>
-              <a class="dropdown-item" href="/student/attendance/<%=user.hallTicket%>">
-                <i class="material-icons">vertical_split</i> Attendance</a>
-              <a class="dropdown-item" href="/student/marks/<%=user.hallTicket%>">
-                <i class="material-icons">note_add</i>Marks</a>
-              <div class="dropdown-divider"></div>
               <a class="dropdown-item text-danger" href="/auth/user/logout/<%=user.role%>/<%=user._id%>">
                 <i class="material-icons text-danger">&#xE879;</i> Logout </a>
-            </div>
+            
+          <%}%>
+          <span class="d-none d-md-inline-block">admin</span>
+            </a>
+              <a class="dropdown-item text-danger" href="/auth/user/logout">
+                <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+
           </li>
         </ul>
         <nav class="nav">
@@ -64,7 +63,10 @@
         <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
           <div class="d-table m-auto">
             <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="/images/shards-dashboards-logo.svg" alt="Shards Dashboard">
-            <span class="d-none d-md-inline ml-1"><%=user.name%>'s Dashboard</span>
+           <% if(user){%>
+              <span class="d-none d-md-inline ml-1"><%=user.name%>'s Dashboard</span>
+            <%}%>
+            <span class="d-none d-md-inline ml-1">admin's Dashboard</span>
           </div>
         </a>
         <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -194,12 +196,12 @@
             <span>Project Search</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link " href="/add-new-post.html">
             <i class="material-icons">note_add</i>
-            <span>RESOURCES</span>
+            <span>Fees</span>
           </a>
-        </li> -->
+        </li>
         <li class="nav-item">
           <a class="nav-link " href="/student/timetable/<%=user.hallTicket%>">
             <i class="material-icons">note_add</i>
@@ -216,28 +218,65 @@
         <li class="nav-item">
           <a class="nav-link " href="form-components.html">
             <i class="material-icons">view_module</i>
-            <span>Forms &amp; Components</span>
+            <span>students</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="tables.html">
             <i class="material-icons">table_chart</i>
-            <span>Tables</span>
+            <span>employees</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="user-profile-lite.html">
             <i class="material-icons">person</i>
-            <span>User Profile</span>
+            <span>BlogPosts</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="errors.html">
             <i class="material-icons">error</i>
-            <span>Errors</span>
+            <span>Attendance</span>
           </a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link " href="errors.html">
+            <i class="material-icons">error</i>
+            <span>Marks</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="errors.html">
+            <i class="material-icons">error</i>
+            <span>Signup Users</span>
+          </a>
+        </li>
+          <%} else{%>
+            <li class="nav-item">
+              <a class="nav-link " href="form-components.html">
+                <i class="material-icons">view_module</i>
+                <span>Attendance</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="tables.html">
+                <i class="material-icons">table_chart</i>
+                <span>timetable</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="user-profile-lite.html">
+                <i class="material-icons">person</i>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="user-profile-lite.html">
+                <i class="material-icons">person</i>
+                <span>Add Subjects</span>
+              </a>
+            </li>
+
           <%}%>
       </ul>
     </div>
