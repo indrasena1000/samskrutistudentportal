@@ -10,8 +10,28 @@ user = req.user
 exports.addSubjects = (async (req, res, next) => { 
     const user = req.user
     
-console.log("holder")
-    return res.render("./student/addSubjects.ejs",{user})
+console.log("holder");
+var streams=[
+    {Engineering:[]},
+    {MBA:[]},
+    {Polytechnic:[]},
+    {Pharmacy:[]}
+]
+let streamss=await db.Qualification.find({})
+console.log(streamss)
+for(var stream of streamss){
+    if(stream.stream=="Engineering"){
+        streams[0].Engineering.push(stream.branch)
+    }else if(stream.stream=="MBA"){
+        streams[1].MBA.push(stream.branch)
+    }else if(stream.stream=="Polytechnic"){
+        streams[2].Polytechnic.push(stream.branch)
+    } else if(stream.stream=="Pharmacy"){
+        streams[3].Pharmacy.push(stream.branch)
+    }
+}
+console.log(streams)
+    return res.render("./student/addSubjects.ejs",{user,streams})
 })
 
 exports.addQualification = (async (req, res, next) => { 
