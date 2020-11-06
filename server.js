@@ -45,7 +45,8 @@ const PORT = process.env.PORT ;
 //    // res.locals.host = `http://${req.headers.host}`;
 //    next();
 //  });
-app.get("/",(req,res)=>{
+const {isLoggedIn} = require('./middleware/auth')
+app.get("/",isLoggedIn,(req,res)=>{
    return res.render("./login.ejs")
 })
 // app.all('*', (req, res, next) => {

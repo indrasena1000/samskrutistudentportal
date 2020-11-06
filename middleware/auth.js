@@ -91,8 +91,10 @@ exports.isLoggedIn = async (req, res, next) => {
       }
 
       // THERE IS A LOGGED IN USER
+      res.locals.role = currentUser.role;
       res.locals.user = currentUser;
-      return next();
+
+      return res.redirect(`/${res.locals.role}/dashboard`)
     } catch (err) {
       return next();
     }
