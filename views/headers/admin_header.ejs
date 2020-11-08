@@ -58,7 +58,7 @@
  <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
     <div class="main-navbar">
       <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-        <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+        <a class="navbar-brand w-100 mr-0" href="/<%=user.role%>/dashboard" style="line-height: 25px;">
           <div class="d-table m-auto">
             <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="/images/shards-dashboards-logo.svg" alt="Shards Dashboard">
           
@@ -200,7 +200,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/student/timetable/<%=user.hallTicket%>">
+          <a class="nav-link " href="/<%user.role%>/timetable/<%=user.hallTicket%>">
             <i class="material-icons">note_add</i>
             <span>Time Table </span>
           </a>
@@ -213,13 +213,13 @@
         </li> -->
       <%} else if(user.role==="admin"){%>
         <li class="nav-item">
-          <a class="nav-link " href="form-components.html">
+          <a class="nav-link " href="/<%=user.role%>/dashboard/students">
             <i class="material-icons">view_module</i>
             <span>students</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="tables.html">
+          <a class="nav-link " href="/<%=user.role%>/dashboard/employees">
             <i class="material-icons">table_chart</i>
             <span>employees</span>
           </a>

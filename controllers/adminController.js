@@ -37,7 +37,7 @@ console.log(streams)
 exports.addQualification = (async (req, res, next) => { 
     console.log("qualify")
     const user = req.user
-   
+    
     let allqualifications = await db.Qualification.find({})
    
 console.log("holder")
@@ -45,6 +45,7 @@ console.log("holder")
 })
 
 exports.addBranch = (async (req, res, next) => { 
+    console.log("hello")
     console.log(req.body.stream)
     console.log(req.body.branch)
      newbranch = await db.Qualification.create(req.body)
@@ -61,5 +62,21 @@ exports.deleteBranch = (async (req, res, next) => {
   await db.Qualification.findByIdAndDelete(req.params.branchId)
   console.log("deleted")
   return res.redirect("/admin/dashboard/addqualification")
+
+})
+
+exports.getStudents = (async (req, res, next) => { 
+    user = req.user
+    return res.render("./student/students",{
+        user
+    })
+
+})
+
+exports.getEmployees = (async (req, res, next) => { 
+    user = req.user
+    return res.render("./student/employees",{
+        user
+    })
 
 })

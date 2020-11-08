@@ -1,6 +1,9 @@
 
   <%- include('../headers/admin_header.ejs') -%>
+
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <style>
 
       .dropdown-submenu {
@@ -60,44 +63,100 @@
       
       
       <form>
-        <!-- <div class="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div> -->
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Select Stream</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Engineering</option>
-            <option>Pharmacy</option>
-            <option>Diploma</option>
-            
-          </select>
-        </div>
-        <div style="margin-left:70px;" class="dropdown align-items-center">
-          <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Year
-          </button>
-          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-          
-            <%streams.forEach(stream=>{%>
-              <li class="dropdown-divider"></li>
-              <li  class="dropdown-submenu">
-                <a style="right: 0;" class="dropdown-item" tabindex="-1" href="#"><%=Object.keys(stream)%></a>
-                <ul class="dropdown-menu">
-                  <%stream[Object.keys(stream)].forEach(year1=>{%>
-                  <li class="dropdown-item"><%=year1%></li>
-                 
-                  <%})%>
+        <div class="row">
+          <div class="col-lg-2">
+
+          </div>
+          <div  class="col-lg-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Subject Name</label>
+              <input type="text" class="form-control" name="subject" id="exampleFormControlInput1" placeholder="Enter Subject Name">
+            </div>
+          </div>
+          <div  class="col-lg-3">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Regulation</label>
+              <input type="text" class="form-control" name="subject" id="exampleFormControlInput1" placeholder="Enter Subject Name">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div style="margin-left:70px;"  class="dropdown align-items-center">
+              <button style="width: 140px;height:50px;font-size:medium;" class="btn btn-info  dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Year
+              </button>
+              <ul class="dropdown-menu multi-level" id="streamsdropdown" value="streamvalue"  role="menu" aria-labelledby="dropdownMenu">             
+                <%streams.forEach(stream=>{%>
+                  <li class="dropdown-divider"></li>
+                  <li  class="dropdown-submenu">
+                    <a style="right: 0;" class="dropdown-item" tabindex="-1" href="#"><%=Object.keys(stream)%></a>
+                    <ul  value="optionvalue" class="dropdown-menu">
+                      <%stream[Object.keys(stream)].forEach(year1=>{%>
+                      <li  class="dropdown-item"><%=year1%></li>
+                     
+                      <%})%>
+                    </ul>
+                  </li>
+                <%})%>
                 </ul>
-              </li>
-            <%})%>
-            </ul>
+            </div>
+          </div>
+          
         </div>
+        
         </form>
       
     </div>
   
+       <!-- Default Light Table -->
+       <div style="margin-top: 50px;margin-right: 5px;margin-left: 5px;" class="row">
+        <div class="col">
+          <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+              <h6 class="m-0">Available qualifications</h6>
+              <input type="text" style="width:250px;" id="myInput" onkeyup="myFunction()" placeholder="Search By Stream" title="Type in a name">
+  
+            </div>
+            <div class="card-body p-0 pb-3 text-center">
+              <table id="myTable" class="table mb-0">
+                <thead class="bg-light">
+                  <tr>
+                    <th scope="col" class="border-0">#</th>
+                    <th scope="col" class="border-0">stream</th>
+                    <th scope="col" class="border-0">branch</th>
+                    <!-- <th scope="col" class="border-0">Polytechnic</th>
+                    <th scope="col" class="border-0">MBA</th> -->
+                    <th scope="col" class="border-0">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                           
+                            <td><a href="/admin/dashboards/delete/branch/" ><i style="color:red;cursor: pointer;" class="fas fa-trash"></i></a></td>
+                          </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
  </main>
+ <script>
+  document.getElementById('streamsdropdown').onclick = function () {
+    let text = this.value;
+    var input = document.createElement('input');
+    input.setAttribute('value', text);
+    document.body.appendChild(input); 
+    input.select();
+    var result = document.execCommand('copy');
+    document.body.removeChild(input)
+    return result;
+}
+ </script>
   
   <%- include("../headers/admin_footer.ejs") -%>
   

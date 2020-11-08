@@ -49,6 +49,11 @@ const {isLoggedIn} = require('./middleware/auth')
 app.get("/",isLoggedIn,(req,res)=>{
    return res.render("./login.ejs")
 })
+
+app.get("/log",(req,res)=>{
+   return res.render("./student/tables.ejs")
+
+})
 // app.all('*', (req, res, next) => {
 //    res.render('./404.ejs');
 //  });
